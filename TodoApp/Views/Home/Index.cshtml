@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container p-3 text-primary">
+
+    @if (TempData["success"] != null)
+    {
+        <h2 class="text-center my-3">@TempData["success"]</h2>
+    }
+
+    <div class="btn-group-vertical main-page-layout" role="group" aria-label="Button group with nested dropdown">
+        <a class="btn btn-success rounded-0" style="width: 220px;" asp-controller="Crud" asp-action="Create"><i class="bi bi-plus-circle"></i> &nbsp; Create New ToDo</a>
+
+        <h1 class="mb-3 mt-3" style="text-align: center; color: white;">ToDo List</h1>
+
+        <a class="btn btn-primary rounded-0 p-3" style="width: 220px;" asp-controller="Home" asp-action="All">All</a>
+        <br />
+        <a class="btn btn-primary rounded-0 p-3" style="width: 220px;" asp-controller="Home" asp-action="NotStarted">NotStarted</a>
+        <br />
+        <a class="btn btn-primary rounded-0 p-3" style="width: 220px;" asp-controller="Home" asp-action="InProgress">InProgress</a>
+        <br />
+        <a class="btn btn-primary rounded-0 p-3" style="width: 220px;" asp-controller="Home" asp-action="Completed">Completed</a>
+        <br />
+        <a class="btn btn-primary rounded-0 p-3" style="width: 220px;" asp-controller="Home" asp-action="Hidden">Hidden</a>
+    </div>
+
+</div>
+

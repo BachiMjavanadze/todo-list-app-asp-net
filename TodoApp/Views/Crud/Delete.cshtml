@@ -1,0 +1,52 @@
+﻿@model Todo
+
+<form method="post">
+    <input asp-for="Id" hidden/>
+
+    <div class="border p-3 mt-4">
+        <div class="row p-2">
+            <h2 class="text-success">Delete ToDo</h2>
+            <hr />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" disabled />
+        </div>
+        <br />
+        <div class="mb-3">
+            <label asp-for="Description"></label>
+            <textarea input asp-for="Description" class="form-control" cols="15" rows="10" disabled></textarea>
+        </div>
+        <br />
+        <div class="mb-3 d-inline-block">
+            <label asp-for="CreateDataTime"></label>
+            <input type="date" asp-for="CreateDataTime" class="form-control" disabled />
+        </div>
+        <br />
+        <div class="mb-3 d-inline-block">
+            <label asp-for="EndDataTime"></label>
+            <input type="date" asp-for="EndDataTime" class="form-control" disabled />
+        </div>
+        <br />
+        <div class="mb-3 d-inline-block">
+            <label asp-for="Status"></label>
+            <select class="form-select" asp-for="Status" disabled>
+                <option value="1" selected>Not Started</option>
+                <option value="2">In Progress</option>
+                <option value="3">Completed</option>
+            </select>
+        </div>
+        <br />
+        <div class="mb-3 d-inline-block">
+            <label asp-for="Hidden" class="mb-1 d-inline-block"></label>
+            <br />
+            <input class="form-check-input" type="checkbox" asp-for="Hidden" class="form-control" disabled/>
+        </div>
+        <br />
+        <br />
+        <button type="submit" class="btn btn-primary" style="width: 90px">Delete</button>
+        <a class="btn btn-secondary" style="width: 90px" href="##" onClick="history.go(-1); return false;">Cancel</a>
+    </div>
+</form>
+

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Todo>
+
+@{
+    ViewData["Title"] = "Completed";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 style="width: 200px" class="text-primary">Completed ToDos</h2>
+        </div>
+
+        <div class="col-6">
+        </div>
+    </div>
+    <table class="table table-bordered table-striped" style="table-layout:fixed;">
+        <thead>
+            <tr>
+                <th class="table-item">Name</th>
+                <th class="table-item table-item-hide">Description</th>
+                <th class="table-item table-item-hide">Create DataTime</th>
+                <th class="table-item table-item-hide">End DataTime</th>
+                <th class="table-item table-item-hide">Status</th>
+                <th class="table-item table-item-hide">Hidden</th>
+            </tr>
+        </thead>
+
+        <tbody id="todo-list">
+            @foreach (var obj in Model)
+            {
+                @if (obj.Status == Status.Completed)
+                {
+                    <tr class="todo-item">
+                        <td class="table-item todo-name">@obj.Name</td>
+                        <td class="table-item table-item-hide">@obj.Description</td>
+                        <td class="table-item table-item-hide">@obj.CreateDataTime</td>
+                        <td class="table-item table-item-hide">@obj.EndDataTime</td>
+                        <td class="table-item table-item-hide">@obj.Status</td>
+                        <td class="table-item table-item-hide">@obj.Hidden</td>
+
+                        <td>
+                            <div class="w-75 btn-group d-flex col-2" role="group">
+                                <a style="width: 80px" class="btn btn-danger" asp-controller="Crud" asp-action="Edit" asp-route-id="@obj.Id"> <i class="bi bi-pencil-square"></i>Edit</a>
+                                <a style="width: 80px" class="btn btn-primary" asp-controller="Crud" asp-action="Delete" asp-route-id="@obj.Id"> <i class="bi bi-trash3"></i>Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+</div>
